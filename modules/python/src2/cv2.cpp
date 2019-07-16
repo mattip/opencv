@@ -1842,7 +1842,7 @@ void initcv2()
   Py_DECREF(opencv_error_dict);
   PyDict_SetItemString(d, "error", opencv_error);
 
-#if PY_MAJOR_VERSION >= 3
+#if PY_MAJOR_VERSION >= 3 || defined(PYPY_VERSION)
 #define PUBLISH_OBJECT(name, type) Py_INCREF(&type);\
   PyModule_AddObject(m, name, (PyObject *)&type);
 #else
